@@ -1,1 +1,48 @@
-<div>Main Page</div>
+<div *ngIf="!isPageLoading" fxLayout="column" fxFlex>
+  <div class="movie-search" fxLayout="row stretch" fxLayoutAlign="center center">
+    <form [formGroup]="form" (ngSubmit)="search()">
+      <div fxLayout="row" fxLayoutAlign="space-between center"
+           fxLayout.xs="column" fxLayoutAlign.xs="start stretch">
+        <mat-form-field appearance="outline" fxFlex
+                        class="mat-form-field-no-padding">
+          <mat-label>Пошук</mat-label>
+
+          <input matInput
+                 placeholder="Пошук"
+                 formControlName="find">
+
+          <button mat-icon-button
+                  type="submit"
+                  tabindex="-1"
+                  matPrefix
+                  class="search-btn">
+            <mat-icon>search</mat-icon>
+          </button>
+        </mat-form-field>
+      </div>
+    </form>
+  </div>
+
+  <div *ngIf="movies.length" class="movie-container" fxLayout="row wrap" fxLayoutAlign="center center" fxLayoutGap="12px" fxLayoutGap.xs="0">
+    <movie-card class="movie-card" *ngFor="let movie of movies" [movie]="movie"></movie-card>
+  </div>
+
+  <div *ngIf="!movies.length" class="movies-not-found-container" fxLayout="row stretch" fxLayoutAlign="center center">
+    Фільмів не знайдено
+  </div>
+
+  <div *ngIf="movies.length"
+       infiniteScroll
+       [infiniteScrollDistance]="2"
+       (scrolled)="onScroll()">
+
+  </div>
+
+  <div *ngIf="isLoading" class="loader-container custom-spinner" fxLayout="row stretch" fxLayoutAlign="center center">
+    <mat-spinner></mat-spinner>
+  </div>
+</div>
+
+<div *ngIf="isPageLoading" class="loader-container custom-spinner" fxLayout="row" fxLayoutAlign="center center" fxFlex>
+  <mat-spinner></mat-spinner>
+</div>

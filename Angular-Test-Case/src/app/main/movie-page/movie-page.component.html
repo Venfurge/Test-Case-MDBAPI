@@ -1,0 +1,67 @@
+<div id="top" *ngIf="movieInfo" fxLayout="column" fxLayoutAlign="start stretch">
+  <div fxLayout="row" fxLayoutAlign="center stretch">
+    <div fxLayout="row" fxLayout.xs="column" fxLayoutAlign="start stretch">
+      <img *ngIf="movieInfo.poster_path" class="movie-poster" src="https://image.tmdb.org/t/p/w500/{{movieInfo.poster_path}}" />
+      <img *ngIf="!movieInfo.poster_path" class="movie-poster " src="/assets/movie-poster-coming-soon.png" />
+
+      <div class="movie-info-container" fxLayout="column" fxLayoutAlign="space-between stretch" fxFlex>
+        <div fxLayout="column">
+          <span class="movie-title">{{movieInfo.title}}</span>
+          <span class="movie-status">Status: {{movieInfo.status}}</span>
+          <span class="movie-release-date">Release date: {{movieInfo.release_date}}</span>
+          <span class="movie-budget">Budget: {{movieInfo.budget}}$</span>
+          <span class="movie-runtime">Runtime: {{movieInfo.runtime}} min</span>
+
+          <div fxLayout="column" class="movie-overview-container">
+            <span class="movie-overview-title">Overview</span>
+            <span class="movie-overview">{{movieInfo.overview}}</span>
+          </div>
+
+          <div fxLayout="column" class="movie-genres-container">
+            <span class="movie-genre-title">Genres</span>
+
+            <div fxLayout="row wrap" fxLayoutGap="4px" class="movie-genres">
+              <span *ngFor="let genre of movieInfo.genres">{{genre.name}}, </span>
+            </div>
+          </div>
+        </div>
+
+        <div fxLayout="row" fxLayoutAlign="end stretch">
+          <mat-checkbox class="movie-favourite-check-box"
+                        labelPosition="before"
+                        [(ngModel)]="isFavourite"
+                        (change)="checkBoxChecked($event.checked)">
+            Favorite
+          </mat-checkbox>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div fxLayout="column" fxLayoutAlign="start stretch" fxFlex>
+    <span fxLayout="row" fxLayoutAlign="center center" class="movie-recomendations">Recomendations</span>
+
+    <div *ngIf="movies.length" class="movie-container" fxLayout="row wrap" fxLayoutAlign="center center" fxLayoutGap="12px" fxLayoutGap.xs="0">
+      <movie-card class="movie-card" *ngFor="let movie of movies" [movie]="movie"></movie-card>
+    </div>
+
+    <div *ngIf="!movies.length" class="movies-not-found-container" fxLayout="row stretch" fxLayoutAlign="center center">
+      Фільмів не знайдено
+    </div>
+
+    <div *ngIf="movies.length"
+         infiniteScroll
+         [infiniteScrollDistance]="2"
+         (scrolled)="onScroll()">
+
+    </div>
+
+    <div *ngIf="isLoading" class="loader-container custom-spinner" fxLayout="row stretch" fxLayoutAlign="center center">
+      <mat-spinner></mat-spinner>
+    </div>
+  </div>
+</div>
+
+<div *ngIf="!movieInfo" class="movie-not-found" fxLayout="row" fxLayoutAlign="center stretch">
+  Error 404 - Not Found
+</div>

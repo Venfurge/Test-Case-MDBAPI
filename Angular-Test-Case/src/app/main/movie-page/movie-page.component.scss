@@ -1,0 +1,94 @@
+@import 'src/app.theme.scss';
+
+.movie-poster {
+  max-width: 300px;
+  min-height: 450px;
+
+  @include media-breakpoint('xs') {
+    max-width: 100%;
+  }
+}
+
+.movie-info-container {
+  padding-top: 4px;
+  padding-left: 8px;
+
+  .movie-title {
+    font-size: 24px;
+    font-weight: 600;
+  }
+
+  .movie-status {
+    font-size: 14px;
+    font-weight: 400;
+    margin-top: 8px;
+  }
+
+  .movie-release-date {
+    font-size: 14px;
+    font-weight: 400;
+    color: grey;
+    margin-top: 8px;
+  }
+
+  .movie-budget {
+    font-size: 14px;
+    font-weight: 400;
+    margin-top: 8px;
+  }
+
+  .movie-runtime {
+    font-size: 14px;
+    font-weight: 400;
+    margin-top: 8px;
+  }
+
+  .movie-overview-container {
+    max-width: 400px;
+    margin-top: 20px;
+
+    .movie-overview-title {
+      font-size: 16px;
+      font-weight: 500;
+    }
+
+    .movie-overview {
+      font-size: 14px;
+    }
+  }
+
+  .movie-genres-container {
+    margin-top: 20px;
+
+    .movie-genre-title {
+      font-size: 16px;
+      font-weight: 500;
+    }
+  }
+}
+
+.movie-recomendations {
+  font-size: 32px;
+  font-weight: 600;
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+.movie-container {
+  width: 100% !important;
+
+  .movie-card {
+    margin-top: 12px !important;
+  }
+}
+
+.loader-container {
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+.movie-not-found{
+  font-size: 40px;
+  font-weight: 600;
+  margin-top: 40px;
+}

@@ -1,0 +1,19 @@
+.header-container {
+  .header-link {
+    width: 120px;
+    height: 40px;
+
+    background-color: lightblue;
+    font-weight: 500;
+
+    margin-left: 12px;
+    margin-right: 12px;
+    margin-top: 12px;
+
+    border-radius: 4px;
+  }
+
+  .active-url {
+    color: white;
+  }
+}

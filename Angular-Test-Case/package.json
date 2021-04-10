@@ -1,4 +1,4 @@
-{
+  {
   "name": "angular-test-case",
   "version": "0.0.0",
   "scripts": {
@@ -22,6 +22,7 @@
     "@angular/platform-browser": "11.2.8",
     "@angular/platform-browser-dynamic": "11.2.8",
     "@angular/router": "11.2.8",
+    "ngx-infinite-scroll": "^10.0.1",
     "rxjs": "7.0.0-beta.2",
     "tslib": "^2.0.0",
     "zone.js": "0.11.2"

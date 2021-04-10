@@ -1,0 +1,18 @@
+<div class="header-container"
+     fxLayout="row" fxLayoutAlign="start center"
+     fxLayoutAlign.xs="space-between stretch">
+
+  <a class="header-link"
+     fxLayout="row" fxLayoutAlign="center center"
+     routerLink="/">
+    Main
+  </a>
+
+  <a class="header-link"
+     fxLayout="row"
+     fxLayoutAlign="center center"
+     routerLink="/favourites"
+     [routerLinkActive]="'active-url'">
+    Favourites
+  </a>
+</div>

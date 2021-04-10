@@ -28,3 +28,22 @@ a {
     color: inherit;
   }
 }
+
+//scrollbar
+::-webkit-scrollbar {
+  width: 5px;
+  height: 5px;
+}
+
+::-webkit-scrollbar-track {
+  background: none;
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(0, 0, 0, 0.3);
+  border-radius: 2.5px;
+
+  &:hover {
+    background: rgba(0, 0, 0, 0.5);
+  }
+}

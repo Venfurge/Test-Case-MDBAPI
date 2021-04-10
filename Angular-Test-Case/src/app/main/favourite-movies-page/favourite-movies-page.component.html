@@ -1,0 +1,25 @@
+<div *ngIf="!isPageLoading" fxLayout="column" fxFlex>
+  <div *ngIf="favouriteMovies.length"
+       class="page-title-text"
+       fxLayout="row stretch" fxLayoutAlign="center center">
+    Улюблені фільмі
+  </div>
+
+  <div *ngIf="favouriteMovies.length"
+       class="movie-container"
+       fxLayout="row wrap" fxLayoutAlign="center center"
+       fxLayoutGap="12px" fxLayoutGap.xs="0">
+
+    <movie-card *ngFor="let movie of favouriteMovies" class="movie-card" [movie]="movie"></movie-card>
+  </div>
+
+  <div *ngIf="!favouriteMovies.length"
+       class="page-title-text"
+       fxLayout="row stretch" fxLayoutAlign="center center">
+    Улюблених фільмів не знайдено
+  </div>
+</div>
+
+<div *ngIf="isPageLoading" class="loader-container custom-spinner" fxLayout="row" fxLayoutAlign="center center" fxFlex>
+  <mat-spinner></mat-spinner>
+</div>

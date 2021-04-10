@@ -1,0 +1,38 @@
+<mat-card class="movie-card-container"
+          fxLayout="row" fxLayout.xs="column"
+          fxLayoutAlign="start stretch">
+
+  <a [routerLink]="['/movie', movie.id]">
+    <img *ngIf="movie.poster_path" class="movie-poster" src="https://image.tmdb.org/t/p/w500/{{movie.poster_path}}" />
+    <img *ngIf="!movie.poster_path" class="movie-poster " src="/assets/movie-poster-coming-soon.png" />
+  </a>
+
+  <div class="movie-info-container" fxLayout="column" fxLayoutAlign="space-between stretch" fxFlex>
+    <div fxLayout="column">
+      <span class="movie-title">{{movie.title}}</span>
+      <span class="movie-release-date">Release date: {{movie.release_date}}</span>
+
+      <div class="movie-overview-container" fxLayout="column">
+        <span class="movie-overview-title">Overview</span>
+        <span class="movie-overview">{{movie.overview}}</span>
+      </div>
+
+      <div class="movie-genres-container" fxLayout="column">
+        <span class="movie-genre-title">Genres</span>
+
+        <div fxLayout="row wrap" fxLayoutGap="4px">
+          <span *ngFor="let genre of genres">{{genre.name}}, </span>
+        </div>
+      </div>
+    </div>
+
+    <div fxLayout="row" fxLayoutAlign="end stretch">
+      <mat-checkbox class="movie-favourite-check-box"
+                    labelPosition="before"
+                    [(ngModel)]="isFavourite"
+                    (change)="checkBoxChecked($event.checked)">
+        Favorite
+      </mat-checkbox>
+    </div>
+  </div>
+</mat-card>

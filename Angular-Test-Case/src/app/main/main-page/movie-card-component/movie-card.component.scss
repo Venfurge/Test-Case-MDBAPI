@@ -1,0 +1,62 @@
+@import 'src/app.theme.scss';
+
+.movie-card-container {
+  max-width: 600px;
+  min-width: 600px;
+  box-shadow: 0 1px 1px -1px rgba(0,0,0,1),
+              0 0px 0px 0 rgba(0,0,0,1),
+              0 0px 3px 0 rgba(0,0,0,1) !important;
+
+  @include media-breakpoint('xs') {
+    max-width: 300px !important;
+    min-width: unset;
+  }
+
+  .movie-poster {
+    max-width: 300px;
+    min-height: 450px;
+
+    @include media-breakpoint('xs') {
+      max-width: 100%;
+    }
+  }
+
+  .movie-info-container {
+    padding-top: 4px;
+    padding-left: 8px;
+
+    .movie-title {
+      font-size: 24px;
+      font-weight: 600;
+    }
+
+    .movie-release-date {
+      font-size: 14px;
+      font-weight: 400;
+      color: grey;
+      margin-top: 8px;
+    }
+
+    .movie-overview-container {
+      margin-top: 20px;
+
+      .movie-overview-title {
+        font-size: 16px;
+        font-weight: 500;
+      }
+
+      .movie-overview {
+        font-size: 14px;
+      }
+    }
+
+    .movie-genres-container {
+      margin-top: 20px;
+
+      .movie-genre-title {
+        font-size: 16px;
+        font-weight: 500;
+      }
+    }
+  }
+}

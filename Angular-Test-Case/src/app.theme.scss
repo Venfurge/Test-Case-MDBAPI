@@ -1,0 +1,41 @@
+@import '~@angular/material/theming';
+@include mat-core();
+
+$primary: mat-palette($mat-indigo);
+
+$primary: mat-palette($mat-green);
+$accent: mat-palette($mat-amber);
+$warn: mat-palette($mat-red);
+
+$custom-theme: mat-light-theme($primary, $accent, $warn);
+
+@include angular-material-theme($custom-theme);
+
+//media breakpoints
+$breakpoints: ( xs: 'screen and (max-width: 599px)', sm: 'screen and (min-width: 600px) and (max-width: 959px)', md: 'screen and (min-width: 960px) and (max-width: 1279px)', lg: 'screen and (min-width: 1280px) and (max-width: 1919px)', xl: 'screen and (min-width: 1920px) and (max-width: 5000px)', lt-sm: 'screen and (max-width: 599px)', lt-md: 'screen and (max-width: 959px)', lt-lg: 'screen and (max-width: 1279px)', lt-xl: 'screen and (max-width: 1919px)', gt-xs: 'screen and (min-width: 600px)', gt-sm: 'screen and (min-width: 960px)', gt-md: 'screen and (min-width: 1280px)', gt-lg: 'screen and (min-width: 1920px)' ) !default;
+
+@mixin media-breakpoint($breakpointName) {
+  $mediaQuery: map-get($breakpoints, $breakpointName);
+
+  @if ($mediaQuery == null) {
+    @content
+  }
+  @else {
+    @media #{$mediaQuery} {
+      @content
+    }
+  }
+}
+
+//Material component custom classes
+.custom-spinner {
+  .mat-progress-spinner circle, .mat-spinner circle {
+    stroke: black !important;
+  }
+}
+
+.mat-form-field-no-padding {
+  .mat-form-field-wrapper {
+    padding: 0;
+  }
+}

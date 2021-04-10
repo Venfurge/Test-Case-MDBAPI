@@ -1,0 +1,28 @@
+@import 'src/app.theme.scss';
+
+.movie-search {
+  margin-top: 20px;
+  margin-bottom: 20px;
+
+  .search-btn {
+    margin-right: 8px;
+  }
+}
+
+.movie-container {
+  width: 100% !important;
+
+  .movie-card {
+    margin-top: 12px !important;
+  }
+}
+
+.movies-not-found-container {
+  font-size: 24px;
+  font-weight: 600;
+}
+
+.loader-container {
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
