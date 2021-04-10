@@ -39,6 +39,7 @@ export class FavouriteMoviesPageComponent implements OnInit, OnDestroy {
           movies = [];
           if (!ids.length) {
             this.favouriteMovies = movies;
+            this.isPageLoading = false;
           }
 
           return ids;
